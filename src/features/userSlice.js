@@ -1,40 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
- name: "user",
- initialState: {
-  isSignedIn: false,
-  userData: null,
-  searchInput: "tech",
-  blogData: null
- },
- reducers: {
-  setSignedIn: (state, action) => {
-   state.isSignedIn = action.payload
+  name: "user",
+  initialState: {
+    isSignedIn: false,
+    userData: null,
+    searchInput: "tech",
+    blogData: null,
   },
-  setUserData: (state, action) => {
-   state.userData = action.payload
+  reducers: {
+    setSignedIn: (state, action) => {
+      state.isSignedIn = action.payload;
+    },
+    setUserData: (state, action) => {
+      state.userData = action.payload;
+    },
+    setInput: (state, action) => {
+      state.searchInput = action.payload;
+    },
+    setBlogData: (state, action) => {
+      state.blogData = action.payload;
+    },
   },
-  setSearchInput: (state, action) => {
-   state.searchInput = action.payload
-  },
-  setBlogData: (state, action) => {
-   state.blogData = action.payload
-  }
- }
-})
-
+});
 
 export const {
-    setSignedIn,
-    setBlogData,
-    setSearchInput,
-    setUserData
-} = userSlice.action
+  setSignedIn,
+  setUserData,
+  setInput,
+  setBlogData,
+} = userSlice.actions;
 
-export const selectSignedIn = (state) => state.user.isSignedIn
-export const selectUserData = (state) => state.user.userData
-export const selectSearchInput = (state) => state.user.searchInput
-export const selectBlogData = (state) => state.user.blogData
+export const selectSignedIn = (state) => state.user.isSignedIn;
+export const selectUserData = (state) => state.user.userData;
+export const selectUserInput = (state) => state.user.searchInput;
+export const selectBlogData = (state) => state.user.blogData;
 
-export default userSlice.reducer
+export default userSlice.reducer;
